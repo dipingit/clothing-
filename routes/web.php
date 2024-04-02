@@ -21,8 +21,8 @@
 Route::get('/', 'custom_controllers\user_controllers\indexController@IndexPage');
 Route::get('/about', 'custom_controllers\user_controllers\indexController@AboutPage');
 Route::get('/services', 'custom_controllers\user_controllers\indexController@ServicePage');
-Route::get('/contact', 'custom_controllers\user_controllers\indexController@ContactPage');
 Route::get('/user-profile', 'custom_controllers\user_controllers\indexController@UserProfile');
+
 
 Route::get('/login', 'custom_controllers\user_controllers\loginController@LoginPage');
 Route::get('/logout', 'custom_controllers\user_controllers\logoutController@LogOut');
@@ -56,10 +56,15 @@ Route::post('/notifications', 'custom_controllers\notification_controllers\notif
 
 //User & Product - Ends
 
+//contact controller
+
+Route::get('/contact', 'ContactController@ContactPage');
+Route::post('/send-message', 'ContactController@sendEmail')->name('contact.send');
+
 
 //Admin Routes - Start
 
-Route::get('/admin', 'custom_controllers\admin_controllers\adminController@AdminHome');
+Route::get('/admin', 'custom_controllers\admin_controllers\adminController@AdminHome')->name('admin.index');
 Route::get('/admin/usertable', 'custom_controllers\admin_controllers\adminController@UserTable');
 Route::get('/admin/purchasetable', 'custom_controllers\admin_controllers\adminController@PurchaseTable');
 Route::get('/admin/adduser/{type}', 'custom_controllers\admin_controllers\adminController@AddUser');

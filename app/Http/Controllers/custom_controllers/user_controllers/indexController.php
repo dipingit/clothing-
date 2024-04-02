@@ -36,10 +36,6 @@ class indexController extends Controller
         return view('custom_views.user_views.services');
     }
 
-    function ContactPage()
-    {
-        return view('custom_views.user_views.contact');
-    }
 
     function UserProfile(Request $request)
     {

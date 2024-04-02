@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\MessageBag;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> e8ec789 (modified contact us page)
 use App\Product;
 use App\User;
 use App\Purchase;
@@ -22,6 +26,32 @@ use Response;
 
 class adminController extends Controller
 {
+<<<<<<< HEAD
+=======
+
+
+ public function showLoginForm()
+  {
+    
+
+    return view('custom_views.admin_views.adminlogin');
+  }
+
+  public function AdminLogin(Request $request)
+    {
+        $this->validate($request, [
+          'admin-email' => 'required|email',
+          'admin_password' => 'required',
+        ]);
+
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+          // Log Him Now
+          return redirect()->intended(route('admin.index'));
+        } else {
+          return redirect('/');
+        }
+    }
+>>>>>>> e8ec789 (modified contact us page)
     function AdminHome()
     {
         if(Session::has('admin'))
@@ -65,8 +95,13 @@ class adminController extends Controller
             $allRecords->totalSales = $totalSales;
             $allRecords->totalProfit = $totalProfit;
 
+<<<<<<< HEAD
             $notifications = Notification::orderBy('nid', 'DESC')->get();
             return view('custom_views.admin_views.adminpage', compact('allProducts', 'allRecords', 'notifications'));
+=======
+            // $notifications = Notification::orderBy('nid', 'DESC')->get();
+            return view('custom_views.admin_views.adminpage', compact('allProducts', 'allRecords'));
+>>>>>>> e8ec789 (modified contact us page)
 
             //return Response::json($allRecords);
 

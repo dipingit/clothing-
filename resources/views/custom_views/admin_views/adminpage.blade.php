@@ -112,6 +112,7 @@
           <div class="dropdown-menu" aria-labelledby="alertsDropdown" style="max-height: 350px; margin-bottom: 10px;
           overflow:scroll;">
             <h6 class="dropdown-header">New Alerts:</h6>
+<<<<<<< HEAD
             @if($notifications!=null)
             @foreach($notifications as $notify)
             @if($notify->notify_to=="Admin")
@@ -131,6 +132,11 @@
             @endif
             <div class="dropdown-divider"></div>
             {{-- <a class="dropdown-item" href="#">
+=======
+            
+            <div class="dropdown-divider"></div>
+             <a class="dropdown-item" href="#">
+>>>>>>> e8ec789 (modified contact us page)
               <span class="text-danger">
                 <strong>
                   <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>

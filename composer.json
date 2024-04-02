@@ -54,7 +54,14 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
+<<<<<<< HEAD
         "optimize-autoloader": true
+=======
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+>>>>>>> e8ec789 (modified contact us page)
     },
     "minimum-stability": "dev",
     "prefer-stable": true
