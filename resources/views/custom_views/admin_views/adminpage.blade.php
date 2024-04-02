@@ -112,31 +112,9 @@
           <div class="dropdown-menu" aria-labelledby="alertsDropdown" style="max-height: 350px; margin-bottom: 10px;
           overflow:scroll;">
             <h6 class="dropdown-header">New Alerts:</h6>
-<<<<<<< HEAD
-            @if($notifications!=null)
-            @foreach($notifications as $notify)
-            @if($notify->notify_to=="Admin")
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/cloth/{{$notify->notify_forid}}">
-              <span class="text-warning">
-                <strong>
-                  <i class="fa fa-warning"></i> <span class="small float-right text-muted">{{$notify->notify_time}} | {{$notify->notify_date}}</span>
-                  <p>{{$notify->notify_title}}</p>
-                </strong>
-              </span>
-              {{-- <div class="dropdown-message small">{{$notify->notify_dtls}}</div> --}}
-            </a>
-            <div class="container-fluid small">{{$notify->notify_dtls}}</div>
-            @endif
-            @endforeach
-            @endif
-            <div class="dropdown-divider"></div>
-            {{-- <a class="dropdown-item" href="#">
-=======
             
             <div class="dropdown-divider"></div>
              <a class="dropdown-item" href="#">
->>>>>>> e8ec789 (modified contact us page)
               <span class="text-danger">
                 <strong>
                   <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>

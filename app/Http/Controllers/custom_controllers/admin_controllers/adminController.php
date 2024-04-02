@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\MessageBag;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Auth;
->>>>>>> e8ec789 (modified contact us page)
 use App\Product;
 use App\User;
 use App\Purchase;
@@ -26,8 +23,6 @@ use Response;
 
 class adminController extends Controller
 {
-<<<<<<< HEAD
-=======
 
 
  public function showLoginForm()
@@ -51,7 +46,6 @@ class adminController extends Controller
           return redirect('/');
         }
     }
->>>>>>> e8ec789 (modified contact us page)
     function AdminHome()
     {
         if(Session::has('admin'))
@@ -95,13 +89,8 @@ class adminController extends Controller
             $allRecords->totalSales = $totalSales;
             $allRecords->totalProfit = $totalProfit;
 
-<<<<<<< HEAD
-            $notifications = Notification::orderBy('nid', 'DESC')->get();
-            return view('custom_views.admin_views.adminpage', compact('allProducts', 'allRecords', 'notifications'));
-=======
             // $notifications = Notification::orderBy('nid', 'DESC')->get();
             return view('custom_views.admin_views.adminpage', compact('allProducts', 'allRecords'));
->>>>>>> e8ec789 (modified contact us page)
 
             //return Response::json($allRecords);
 
