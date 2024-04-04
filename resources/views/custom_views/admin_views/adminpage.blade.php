@@ -258,6 +258,7 @@
               <thead>
                 <tr>
                   <th scope="col">All Operations</th>
+                  <th scope="col">Product Image</th>
                   <th scope="col">Product Name</th>
                   <th scope="col">Product For</th>
                   <th scope="col">Product Category</th>
@@ -271,6 +272,7 @@
               <tfoot>
                 <tr>
                 <th scope="col">All Operations</th>
+                <th scope="col">Product Image</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Product For</th>
                 <th scope="col">Product Category</th>
@@ -287,10 +289,9 @@
                 <tr>
                   <td scope="row">
                     <div class="btn-group btn-group-justified">
-                    <a class="btn btn-secondary btn-sm" href="/cloth/{{$product->pid}}">More</a>
                     <a class="ml-1 btn btn-success btn-sm" href="/admin/updateproduct/{{$product->pid}}">Update</a>
                     <form action="/admin/deleteproduct/{{$product->pid}}" method="post" id="delete-product">
-                      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                      @csrf
                       <button type="button" class="btn btn-danger btn-sm dropdown-toggle ml-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Delete</button>
                         <div class="dropdown-menu">
                           <input class="dropdown-item" type="submit" value="Yes" name="yes"/>
@@ -300,6 +301,8 @@
                         </div>
                     </form>
                     </div>
+                  </td>
+                    <td><img  src="{{ asset('custom_public/uploads/products/' . $product->pname . '/images/' . $product->pname . '0.jpg') }}" width="70px" height="70px" alt="Image">
                   </td>
                   <td>{{$product->pname}}</td>
                   <td>{{$product->pfor}}</td>

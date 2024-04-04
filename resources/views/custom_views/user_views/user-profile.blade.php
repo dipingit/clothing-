@@ -149,10 +149,7 @@
                                 <p>
                                     Address : {{$user[0]->country}}, {{$user[0]->city}}, {{$user[0]->area}}, {{$user[0]->address}}
                                 </p>
-                                {{-- <h6>Hobbies</h6>
-                                <p>
-                                    Indie music, skiing and hiking. I love the great outdoors.
-                                </p> --}}
+                                <a href="/change-password/{{ $user[0]->id }}" class="btn btn-danger">Change Password</a>
                             </div>
                             <div class="col-md-6">
                                 <h6>Recent badges</h6>

@@ -23,6 +23,8 @@ Route::get('/about', 'custom_controllers\user_controllers\indexController@AboutP
 Route::get('/services', 'custom_controllers\user_controllers\indexController@ServicePage');
 Route::get('/user-profile', 'custom_controllers\user_controllers\indexController@UserProfile');
 
+Route::get('/change-password/{id}', 'custom_controllers\user_controllers\indexController@ChangePassword');
+
 
 Route::get('/login', 'custom_controllers\user_controllers\loginController@LoginPage');
 Route::get('/logout', 'custom_controllers\user_controllers\logoutController@LogOut');
@@ -52,6 +54,7 @@ Route::post('/product/comment/edit', 'custom_controllers\user_controllers\produc
 Route::post('/product/comment/delete', 'custom_controllers\user_controllers\productController@DeleteProductComment', '_token');
 Route::post('/notifications', 'custom_controllers\notification_controllers\notificationController@Store', '_token');
 
+Route::post('/change-password/{id}', 'custom_controllers\user_controllers\indexController@ChangePasswordPost')->name('user.changepassword');
 
 
 //User & Product - Ends
@@ -75,9 +78,9 @@ Route::get('/admin/updateuser/{id}', 'custom_controllers\admin_controllers\admin
 
 
 
-Route::post('/admin/addproduct', 'custom_controllers\admin_controllers\adminController@AddProductPost', '_token');
-Route::post('/admin/updateproduct/{pid}', 'custom_controllers\admin_controllers\adminController@UpdateProductPost', '_token');
-Route::post('/admin/deleteproduct/{pid}', 'custom_controllers\admin_controllers\adminController@DeleteProduct', '_token');
+Route::post('/admin/addproduct', 'custom_controllers\admin_controllers\adminController@AddProductPost');
+Route::post('/admin/updateproduct/{pid}', 'custom_controllers\admin_controllers\adminController@UpdateProductPost');
+Route::post('/admin/deleteproduct/{pid}', 'custom_controllers\admin_controllers\adminController@DeleteProduct');
 Route::post('/admin/deleteuser/{id}', 'custom_controllers\admin_controllers\adminController@DeleteUser', '_token');
 //@AddUserPost has been redirected to /register from @AddUserGet
 Route::post('/admin/updateuser/{id}', 'custom_controllers\admin_controllers\adminController@UpdateUserPost', '_token');

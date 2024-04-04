@@ -12,6 +12,8 @@ use App\Product;
 use App\Favourite;
 use App\Rating;
 use App\Notification;
+use Illuminate\Support\Facades\Hash;
+
 
 class indexController extends Controller
 {
@@ -143,6 +145,45 @@ class indexController extends Controller
         }
 
     }
+
+    public function ChangePassword(Request $request, $user_id)
+    {
+        // dd($user);
+        // dd('hey');
+        // $verifyUser = User::where('id', $user_id)->take(1)->get();
+        // $request->session()->put('user', $verifyUser[0]->username);
+        // $request->session()->put('uid', $verifyUser[0]->id);
+        // $request->session()->put('email', $verifyUser[0]->email);
+        // $request->session()->put('phone', $verifyUser[0]->phonenumber);
+        // $request->session()->put('address', $verifyUser[0]->address);
+        // $request->session()->put('usertype', $verifyUser[0]->accounttype);
+
+
+        return view('custom_views.user_views.change-password', compact('user_id'));
+    }
+
+    public function ChangePasswordPost(Request $request, $user_id){
+
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+        $user = User::where('id', $user_id)->take(1)->get();
+
+        // Check if the current password matches the user's password
+        if (!Hash::check($request->current_password, $user[0]->password)) {
+            return redirect()->back()->withInput()->withErrors(['current_password' => 'The current password is incorrect.']);
+        }
+
+
+        // Update the user's password
+        $user[0]->password = Hash::make($request->new_password);
+        $user[0]->save();
+        return redirect('/user-profile')->with('message', 'Password changed successfully!');
+    }
+
+    
 
     function ChangePic(Request $request, MessageBag $errors)
     {

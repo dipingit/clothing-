@@ -172,9 +172,9 @@
               <div class="col-md-4">
                 <label for="purchase-method">Purchase Method :</label>
                   <select class="form-control" id="purchase-method" name="purchase-method">
-                    <option value="Home Delivary">Home Delivary</option>
-                    <option value="Bikash">Bikash</option>
-                    <option value="Rocket">Rocket</option>
+                    <option value="Home Delivary">Cash On Delivery</option>
+                    <option value="Bikash">Visa</option>
+                    <option value="Rocket">Mastercard</option>
                   </select>
               </div>
               <div class="col-md-4">

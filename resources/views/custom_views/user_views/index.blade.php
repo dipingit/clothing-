@@ -216,7 +216,7 @@
             <a href="/cloth/{{$product->pid}}"><img class="card-img-top" src="custom_public/uploads/products/{{$product->pname}}/images/{{$product->pname}}0.jpg" onerror="this.src = 'custom_public/images/products.jpg'" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="/cloth/{{$product->pid}}">{{$product->pname}}</a>
+                <div>{{$product->pname}}</div>
               </h4>
               <h5><div class="product-rating">
                 {{-- floor(0.60) --}}
@@ -237,9 +237,9 @@
                 @endif
               </div></h5>
               @if(($product->offer==0)||($product->offer==null))
-              <h5>{{$product->price}} {{$product->currency}}</h5>
+                <h5>{{$product->currency}}{{$product->price}} </h5>
               @else
-              <h5><strike>{{$product->price}} {{$product->currency}}</strike> <span class="ml-1">{{$newprice}} {{$product->currency}}</span><span class="pull-right text-danger">{{$product->offer}}% off</span></h5>
+                <h5><strike>{{$product->currency}}{{$product->price}}</strike> <span class="ml-1">{{$product->currency}}{{$newprice}} </span><span class="pull-right text-danger">{{$product->offer}}% off</span></h5>
               @endif
               <p class="card-text">
                 Product For : {{$product->pfor}} </br>
@@ -250,7 +250,7 @@
               
             </div>
             {{-- <% if(username!=""){%> --}}
-            <div class="card-footer">
+            {{-- <div class="card-footer">
               <h6> Give Rating : 
                 <div class="star-rating pull-right" style="cursor: pointer">
                   <span class="fa fa-star-o" data-rating="1"></span>
@@ -275,9 +275,9 @@
                   @endif
                 </div>
               </h6>
-            </div>
+            </div> --}}
             <div class="card-footer">
-              <button type="button" class="btn btn-success btn-sm mzs-atc">Add to Cart</button>
+              <button type="button" id="add-to-cart" class="btn btn-success btn-sm mzs-atc">Add to Cart</button>
               <select class="allsizes" name="allsizes">
                 <option value="{{$product->available}}">Size</option>
                 @if(($product->xs_available!=null)||($product->xs_available!=0))
@@ -335,16 +335,6 @@
 
       <hr>
 
-      <!-- Call to Action Section -->
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-        </div>
-        <div class="col-md-4">
-          <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-        </div>
-      </div>
-
     </div>
     <!-- /.container -->
 
@@ -357,6 +347,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
+
+    </script>
     <script src="{{asset('custom_public/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('custom_public/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('custom_public/addtocart.js')}}"></script>

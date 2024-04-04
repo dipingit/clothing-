@@ -142,13 +142,13 @@
                 <div class="custom-control custom-checkbox custom-control-inline">
                   @if($product[0]->m_available>0)
                   <input type="checkbox" class="custom-control-input" id="m" name="m" value="M" checked>
-                  <label class="custom-control-label" for="m">Midium : </label>
+                  <label class="custom-control-label" for="m">Medium : </label>
                 </div>
                 {{-- <label for="categoryNew">Add New Category :</label> --}}
                 <input class="form-control mt-2" id="mamount" type="number" aria-describedby="nameHelp" placeholder="Quantity for M" name="mamount" value="{{$product[0]->m_available}}" min="1">
                 @else
                 <input type="checkbox" class="custom-control-input" id="m" name="m" value="M">
-                  <label class="custom-control-label" for="m">Midium : </label>
+                  <label class="custom-control-label" for="m">Medium : </label>
                 </div>
                 {{-- <label for="categoryNew">Add New Category :</label> --}}
                 <input class="form-control mt-2" id="mamount" type="number" aria-describedby="nameHelp" placeholder="Quantity for M" name="mamount" value="{{old('mamount')}}" min="1" readonly>
@@ -277,7 +277,7 @@
                   </select>
               </div>
               <div class="col-md-3">
-                <label for="cost">Manufecture Cost:</label>
+                <label for="cost">Manufacture Cost:</label>
                 <input class="form-control" id="cost" type="number" aria-describedby="nameHelp" placeholder="in number" name="cost" min="0" value="{{$product[0]->cost}}">
                 <small id="costHelp" class="text-danger"></small>
               </div>
@@ -292,7 +292,9 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="productpics">Upload Pic:</label>
-                <input class="form-control" id="productpics" type="file" multiple="multiple" name="productpics[]">
+                <input class="form-control" type="file" multiple="multiple" name="productpics[]">
+                <img src="{{ asset('custom_public/uploads/products/' . $product[0]->pname . '/images/' . $product[0]->pname . '0.jpg') }}" width="70px" height="70px" alt="Image">
+
               </div>
             </div>
             <small id="productpicsHelp" class="text-danger"></small>

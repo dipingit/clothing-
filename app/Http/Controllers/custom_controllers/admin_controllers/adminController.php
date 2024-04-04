@@ -324,7 +324,6 @@ class adminController extends Controller
         if(Session::has('admin'))
         {
             $product = Product::where('pid', $pid)->get();
-
             Session::put('pname', $product[0]->pname);
 
             $sizes = $product[0]->size;
@@ -487,7 +486,7 @@ class adminController extends Controller
                     }
                 }
 
-                $product->save();
+                $product->update();
 
                 return redirect('/admin')->with('message', 'Product Successfully Updated!');
 

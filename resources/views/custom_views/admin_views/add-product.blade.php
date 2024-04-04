@@ -84,7 +84,7 @@
       <div class="card-header"><strong>Add a Product</strong></div>
       <div class="card-body">
         <form method="post" action="/admin/addproduct" enctype="multipart/form-data" id="add-update-product">
-          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+          @csrf
           <div class="form-group">
             <div class="form-row">
              <div class="col-md-6">
@@ -125,7 +125,7 @@
                 <!-- Default inline 1-->
                 <div class="custom-control custom-checkbox custom-control-inline">
                   <input type="checkbox" class="custom-control-input" id="m" name="m" value="M">
-                  <label class="custom-control-label" for="m">Midium : </label>
+                  <label class="custom-control-label" for="m">Medium : </label>
                 </div>
                 {{-- <label for="categoryNew">Add New Category :</label> --}}
                 <input class="form-control mt-2" id="mamount" type="number" aria-describedby="nameHelp" placeholder="Quantity for M" name="mamount" value="{{old('mamount')}}" min="1" readonly>
@@ -220,7 +220,7 @@
                   </select>
               </div>
               <div class="col-md-3">
-                <label for="cost">Manufecture Cost:</label>
+                <label for="cost">Manufacture Cost:</label>
                 <input class="form-control" id="cost" type="number" aria-describedby="nameHelp" placeholder="in number" name="cost" min="0" value="{{old('cost')}}">
                 <small id="costHelp" class="text-danger"></small>
               </div>
@@ -236,11 +236,11 @@
               <div class="col-md-6">
                 <label for="productpics">Upload Pic:</label>
                 <input class="form-control" id="productpics" type="file" multiple="multiple" name="productpics[]">
+                <img src="{{ asset('/custom_public/uploads/products/'.$product->pname.'/images') }}" width="70px" height="70px" alt="">
               </div>
             </div>
             <small id="productpicsHelp" class="text-danger"></small>
           </div>
-          <!--<a class="btn btn-primary btn-block" href="/registration">Register</a>-->
           <input class="btn btn-primary btn-block" type="submit" value="Add Product" />
         </form>
         <div class="text-center">

@@ -64,7 +64,7 @@ class registerController extends Controller
 
             if(Session::has('admin'))
             {
-                return redirect('/admin/usertable')->with('message', 'User Successfully Added!');;
+                return redirect('/admin/usertable')->with('message', 'User Successfully Added!');
 
             }else{
 

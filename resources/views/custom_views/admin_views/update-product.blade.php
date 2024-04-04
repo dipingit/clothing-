@@ -84,7 +84,7 @@
       <div class="card-header"><strong>Add a Product</strong></div>
       <div class="card-body">
         <form method="post" action="/admin/updateproduct/{{$product[0]->pid}}" enctype="multipart/form-data" id="add-update-product">
-          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+          @csrf
           <div class="form-group">
             <div class="form-row">
              <div class="col-md-6">
@@ -191,7 +191,7 @@
                   </select>
               </div>
               <div class="col-md-3">
-                <label for="cost">Manufecture Cost:</label>
+                <label for="cost">Manufacture Cost:</label>
                 <input class="form-control" id="cost" type="number" aria-describedby="nameHelp" placeholder="Cost in number" name="cost" min="0" value="{{$product[0]->cost}}">
                 <small id="costHelp" class="text-danger"></small>
               </div>

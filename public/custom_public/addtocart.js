@@ -150,6 +150,7 @@ $(document).ready(function(){
 
 		var selectedsize = $( "#" + parentDivId ).find('option:selected').text();
 		console.log(selectedsize);
+		
 		if(selectedsize == "Size")
 		{
 			alert("Select a Size");
