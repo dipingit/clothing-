@@ -95,7 +95,6 @@ class indexController extends Controller
         {
             $user->firstname = $request->input('firstname');
             $user->lastname = $request->input('lastname');
-            $user->password = $request->input('password');
             $user->gender = $request->input('gender');
             $user->dob = $request->input('DOB');
             $user->phonenumber = $request->input('pnumber');

@@ -42,8 +42,8 @@ Route::get('/cartlist', 'custom_controllers\user_controllers\productController@C
 
 //User & Product Routes - POST
 
-Route::post('/login', 'custom_controllers\user_controllers\loginController@LoggedInReq', '_token');
-Route::post('/register', 'custom_controllers\user_controllers\registerController@RegisterUser', '_token');
+Route::post('/login', 'custom_controllers\user_controllers\loginController@LoggedInReq')->name('login');
+Route::post('/register', 'custom_controllers\user_controllers\registerController@RegisterUser')->name('user.register');
 Route::post('/user/update-info/{id}', 'custom_controllers\user_controllers\indexController@UpdateInfo', '_token');
 Route::post('/user/change-profilepic', 'custom_controllers\user_controllers\indexController@ChangePic', '_token');
 Route::post('/checkout', 'custom_controllers\user_controllers\productController@CheckOut', '_token');

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class registerController extends Controller
 {
@@ -23,11 +24,20 @@ class registerController extends Controller
         if(($verifyUser->isEmpty())&&($verifyEmail->isEmpty()))
         {
             $user = new User;
-            $user->username = $request->input('username');
+            $validatedData = $request->validate([
+                'username' => 'required|string|max:50|alpha_dash',
+                'password' => 'required|string|min:8'
+
+            ]);
+            if($validatedData){
+                $user->username = $validatedData['username'];
+                $user->password = Hash::make($validatedData['password']);
+            
+            }
+            
             $user->firstname = $request->input('firstname');
             $user->lastname = $request->input('lastname');
             $user->email = $request->input('email');
-            $user->password = $request->input('password');
             $user->gender = $request->input('gender');
             $user->dob = $request->input('DOB');
             $user->phonenumber = $request->input('pnumber');

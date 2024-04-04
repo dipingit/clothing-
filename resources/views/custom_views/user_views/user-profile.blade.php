@@ -169,43 +169,6 @@
                                 <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
                                 <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                             </div>
-                            <div class="col-md-12">
-                                <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                                <table class="table table-sm table-hover table-striped">
-                                    <tbody>                                    
-                                        <tr>
-                                            <td>
-                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                         <!--/row-->
                     </div>
@@ -543,7 +506,7 @@
                     </div>
                     <div class="tab-pane" id="edit">
                         <form method="post" action="/user/update-info/{{$user[0]->id}}" enctype="multipart/form-data" id="register">
-                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                            @csrf
                             <div class="form-group">
                                 <div class="form-row">
                                 <div class="col-md-12">
@@ -597,20 +560,6 @@
                                     <label for="pnumber">Phone Number</label>
                                     <input class="form-control" id="pnumber" type="text" aria-describedby="phoneHelp" placeholder="Enter phone number" name="pnumber" value="{{$user[0]->phonenumber}}">
                                     <small id="pnumberHelp" class="text-danger"></small>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-row">
-                                <div class="col-md-6">
-                                    <label for="password">Password</label>
-                                    <input class="form-control" id="password" type="password" placeholder="Password"  name="password" value="{{$user[0]->password}}">
-                                    <small id="passwordHelp" class="text-danger"></small>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="cpassword">Confirm password</label>
-                                    <input class="form-control" id="cpassword" type="password" placeholder="Confirm password" name="cpassword" value="{{$user[0]->password}}">
-                                    <small id="cpasswordHelp" class="text-danger"></small>
                                 </div>
                                 </div>
                             </div>

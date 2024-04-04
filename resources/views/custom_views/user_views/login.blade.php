@@ -79,13 +79,22 @@
 
     <div class="container">
         <div class="card card-login mx-auto mt-5 pt-md-2">
+           @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+          @endif
             <div class="card-header"><strong>Login</strong></div>
             <div class="card-body">
                 <form method="post" action="/login" id="login">
-                  <input type="hidden" name="_token" value="{{csrf_token()}}">
+                  @csrf
                     <div class="form-group">
                         <label for="usernameEmail">Username / Email address</label>
-                        <input class="form-control" id="usernameEmail" type="text" aria-describedby="emailHelp" placeholder="Enter username / email" name="usernameEmail" value="{{old('usernameEmail')}}">
+                        <input class="form-control" type="text" name="usernameEmail" aria-describedby="emailHelp" placeholder="Enter username / email"  value="{{old('usernameEmail')}}">
                         @if($errors->has('userDNE'))
                           <small id="userDNE" class="text-danger">{{ $errors->first('userDNE') }}</small>
                         @endif

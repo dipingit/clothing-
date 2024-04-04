@@ -75,10 +75,19 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5 pt-md-2">
+       @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+          @endif
       <div class="card-header"><strong>Register an Account</strong></div>
       <div class="card-body">
-        <form method="post" action="/register" enctype="multipart/form-data" id="register">
-          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <form method="POST" action="{{route('user.register')}}" enctype="multipart/form-data" id="register">
+          @csrf
           <div class="form-group">
             <div class="form-row">
              <div class="col-md-12">
@@ -191,7 +200,8 @@
           </div>
           <!--<a class="btn btn-primary btn-block" href="/registration">Register</a>-->
           <input type="hidden" name="acctype" value="User"/>
-          <input class="btn btn-primary btn-block" type="submit" value="Register" />
+          {{-- <input class="btn btn-primary btn-block" type="submit" value="Register" /> --}}
+          <button type="submit" class="btn btn-primary">Register</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="/login">Login Page</a>

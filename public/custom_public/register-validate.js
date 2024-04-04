@@ -83,15 +83,6 @@ $(document).ready(function(){
       }
     }
 
-    console.log(username);
-    console.log(firstname);
-    console.log(lastname);
-    console.log(gender);
-    console.log(dob);
-    console.log(email);
-    console.log(pnumber);
-    console.log(password);
-    console.log(cpassword);
 
     if((username=="")||(firstname=="")||(lastname=="")||(email=="")||(password==""))
     {
